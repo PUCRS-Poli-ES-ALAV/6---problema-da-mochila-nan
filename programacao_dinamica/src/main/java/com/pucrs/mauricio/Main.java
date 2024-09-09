@@ -1,8 +1,12 @@
 package com.pucrs.mauricio;
 
+import java.util.Arrays;
+
 import com.pucrs.mauricio.fibonacci.FibArray;
 import com.pucrs.mauricio.fibonacci.FibMemoizado;
 import com.pucrs.mauricio.fibonacci.FibRecursivo;
+import com.pucrs.mauricio.mochila.KnapsackMatriz;
+import com.pucrs.mauricio.mochila.KnapsackRec;
 
 public class Main {
     public static void main(String[] args) {
@@ -17,5 +21,14 @@ public class Main {
                 
         FibMemoizado fibmemo = new FibMemoizado();
         System.out.printf("Ex. 3, Entrada: %d, Res: %d, Iteracoes: %d, Instrucoes: %d, Tempo de Execucao: %.4fms\n", nthFibNumber, fibmemo.run(nthFibNumber), fibmemo.numIteracoes(), fibmemo.numInstrucoes(), fibmemo.tempoExecucao() / 1e6);
+        
+        KnapsackRec mochilaR = new KnapsackRec();
+        int[] val = {50, 50, 64, 46, 50, 05};
+        int[] pes = {56, 59, 80, 64, 75, 17};
+        int cap = 165;
+        System.out.printf("Ex. 4, Entrada: val%s peso%s, Res: %d, Iteracoes: %d, Instrucoes: %d, Tempo de Execucao: %.4fms\n", Arrays.toString(val), Arrays.toString(pes), mochilaR.run(cap, val, pes), mochilaR.numIteracoes(), mochilaR.numInstrucoes(), mochilaR.tempoExecucao() / 1e6);
+        
+        KnapsackMatriz mochilaM = new KnapsackMatriz();
+        System.out.printf("Ex. 5, Entrada: val%s peso%s, Res: %d, Iteracoes: %d, Instrucoes: %d, Tempo de Execucao: %.4fms\n", Arrays.toString(val), Arrays.toString(pes), mochilaM.run(cap, val, pes), mochilaM.numIteracoes(), mochilaM.numInstrucoes(), mochilaM.tempoExecucao() / 1e6);
     }
 }

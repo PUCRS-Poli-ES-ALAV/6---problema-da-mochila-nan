@@ -18,9 +18,9 @@ public class FibRecursivo {
     }
 
     public int run(int n) {
-        long ti = System.nanoTime();
         iteracoes = 0;
         instrucoes = 0;
+        long ti = System.nanoTime();
         int res = fib(n);
         this.tempoDeExecucao = System.nanoTime() - ti;
         return res;
