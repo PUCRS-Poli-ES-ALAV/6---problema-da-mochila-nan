@@ -25,7 +25,7 @@ public class Main {
         KnapsackRec mochilaR = new KnapsackRec();
         int[] val = {50, 50, 64, 46, 50, 05};
         int[] pes = {56, 59, 80, 64, 75, 17};
-        int cap = 165;
+        int cap = 190;
         System.out.printf("Ex. 4, Entrada: val%s peso%s, Res: %d, Iteracoes: %d, Instrucoes: %d, Tempo de Execucao: %.4fms\n", Arrays.toString(val), Arrays.toString(pes), mochilaR.run(cap, val, pes), mochilaR.numIteracoes(), mochilaR.numInstrucoes(), mochilaR.tempoExecucao() / 1e6);
         
         KnapsackMatriz mochilaM = new KnapsackMatriz();
