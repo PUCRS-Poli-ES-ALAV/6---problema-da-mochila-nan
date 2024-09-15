@@ -11,7 +11,7 @@ import com.pucrs.mauricio.mochila.KnapsackRec;
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hello world!");
-        int[] fibInputs = {4, 8, 16, 32, 128, 1000, 10000};
+        int[] fibInputs = {4, 8, 16, 32, 128, 1000};
 
         System.out.println("Fibonacci: ");
         for (int nthFibNumber : fibInputs) {
@@ -28,14 +28,26 @@ public class Main {
         }
         
         System.out.println("\nKnapsack");
-
-        KnapsackRec mochilaR = new KnapsackRec();
+        
+        int[] caps = {165, 190};
+        int[][] pesos = {{23, 31, 29, 44, 53, 38, 63, 85, 89, 82},
+                         {56, 59, 80, 64, 75, 17}};
+        int[][] vals = {{92, 57, 49, 68, 60, 43, 67, 84, 87, 82},
+                        {50, 50, 64, 46, 50, 5}};
+        
+        for (int i = 0; i < caps.length; i++) {
+            System.out.printf("Capacidade: %d\n", caps[i]);
+            KnapsackRec mochilaR = new KnapsackRec();
+            System.out.printf("Ex. 4, Entrada: val%s peso%s, Res: %d, Iteracoes: %d, Instrucoes: %d, Tempo de Execucao: %.4fms\n", Arrays.toString(vals[i]), Arrays.toString(pesos[i]), mochilaR.run(caps[i], vals[i], pesos[i]), mochilaR.numIteracoes(), mochilaR.numInstrucoes(), mochilaR.tempoExecucao() / 1e6);
+            
+            KnapsackMatriz mochilaM = new KnapsackMatriz();
+            System.out.printf("Ex. 5, Entrada: val%s peso%s, Res: %d, Iteracoes: %d, Instrucoes: %d, Tempo de Execucao: %.4fms\n\n", Arrays.toString(vals[i]), Arrays.toString(pesos[i]), mochilaM.run(caps[i], vals[i], pesos[i]), mochilaM.numIteracoes(), mochilaM.numInstrucoes(), mochilaM.tempoExecucao() / 1e6);
+        }
+        
         int[] val = {50, 50, 64, 46, 50, 05};
         int[] pes = {56, 59, 80, 64, 75, 17};
         int cap = 190;
-        System.out.printf("Ex. 4, Entrada: val%s peso%s, Res: %d, Iteracoes: %d, Instrucoes: %d, Tempo de Execucao: %.4fms\n", Arrays.toString(val), Arrays.toString(pes), mochilaR.run(cap, val, pes), mochilaR.numIteracoes(), mochilaR.numInstrucoes(), mochilaR.tempoExecucao() / 1e6);
+
         
-        KnapsackMatriz mochilaM = new KnapsackMatriz();
-        System.out.printf("Ex. 5, Entrada: val%s peso%s, Res: %d, Iteracoes: %d, Instrucoes: %d, Tempo de Execucao: %.4fms\n", Arrays.toString(val), Arrays.toString(pes), mochilaM.run(cap, val, pes), mochilaM.numIteracoes(), mochilaM.numInstrucoes(), mochilaM.tempoExecucao() / 1e6);
     }
 }
