@@ -24,6 +24,9 @@ public class FibMemoizado {
         for (int i = 0; i < n + 1; i++) {
             numbers[i] = -1;
         }
+        numbers[0] = 0;
+        numbers[1] = 1;
+        numbers[2] = 1;
         long ti = System.nanoTime();
         int res = memoFibo(numbers, n);
         this.tempoDeExecucao = System.nanoTime() - ti;

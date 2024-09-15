@@ -11,17 +11,24 @@ import com.pucrs.mauricio.mochila.KnapsackRec;
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hello world!");
+        int[] fibInputs = {4, 8, 16, 32, 128, 1000, 10000};
 
-        int nthFibNumber = 40;
-        FibRecursivo fibr = new FibRecursivo();
-        System.out.printf("Ex. 1, Entrada: %d, Res: %d, Iteracoes: %d, Instrucoes: %d, Tempo de Execucao: %.4fms\n", nthFibNumber, fibr.run(nthFibNumber), fibr.numIteracoes(), fibr.numInstrucoes(), fibr.tempoExecucao() / 1e6);
+        System.out.println("Fibonacci: ");
+        for (int nthFibNumber : fibInputs) {
+            if (nthFibNumber <= 32) {
+                FibRecursivo fibr = new FibRecursivo();
+                System.out.printf("Ex. 1, Entrada: %d, Res: %d, Iteracoes: %d, Instrucoes: %d, Tempo de Execucao: %.4fms\n", nthFibNumber, fibr.run(nthFibNumber), fibr.numIteracoes(), fibr.numInstrucoes(), fibr.tempoExecucao() / 1e6);
+            }
+            
+            FibArray fibarr = new FibArray();
+            System.out.printf("Ex. 2, ntrada: %d, Res: %d, Iteracoes: %d, Instrucoes: %d, Tempo de Execucao: %.4fms\n", nthFibNumber, fibarr.run(nthFibNumber), fibarr.numIteracoes(), fibarr.numInstrucoes(), fibarr.tempoExecucao() / 1e6);
+                    
+            FibMemoizado fibmemo = new FibMemoizado();
+            System.out.printf("Ex. 3, Entrada: %d, Res: %d, Iteracoes: %d, Instrucoes: %d, Tempo de Execucao: %.4fms\n", nthFibNumber, fibmemo.run(nthFibNumber), fibmemo.numIteracoes(), fibmemo.numInstrucoes(), fibmemo.tempoExecucao() / 1e6);
+        }
         
-        FibArray fibarr = new FibArray();
-        System.out.printf("Ex. 2, ntrada: %d, Res: %d, Iteracoes: %d, Instrucoes: %d, Tempo de Execucao: %.4fms\n", nthFibNumber, fibarr.run(nthFibNumber), fibarr.numIteracoes(), fibarr.numInstrucoes(), fibarr.tempoExecucao() / 1e6);
-                
-        FibMemoizado fibmemo = new FibMemoizado();
-        System.out.printf("Ex. 3, Entrada: %d, Res: %d, Iteracoes: %d, Instrucoes: %d, Tempo de Execucao: %.4fms\n", nthFibNumber, fibmemo.run(nthFibNumber), fibmemo.numIteracoes(), fibmemo.numInstrucoes(), fibmemo.tempoExecucao() / 1e6);
-        
+        System.out.println("\nKnapsack");
+
         KnapsackRec mochilaR = new KnapsackRec();
         int[] val = {50, 50, 64, 46, 50, 05};
         int[] pes = {56, 59, 80, 64, 75, 17};
