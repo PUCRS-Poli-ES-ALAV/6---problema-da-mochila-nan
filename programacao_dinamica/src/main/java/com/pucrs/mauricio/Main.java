@@ -2,6 +2,8 @@ package com.pucrs.mauricio;
 
 import java.util.Arrays;
 
+import com.pucrs.mauricio.distanciaedicao.DistanciaEDDP;
+import com.pucrs.mauricio.distanciaedicao.DistanciaEdRec;
 import com.pucrs.mauricio.fibonacci.FibArray;
 import com.pucrs.mauricio.fibonacci.FibMemoizado;
 import com.pucrs.mauricio.fibonacci.FibRecursivo;
@@ -44,10 +46,26 @@ public class Main {
             System.out.printf("Ex. 5, Entrada: val%s peso%s, Res: %d, Iteracoes: %d, Instrucoes: %d, Tempo de Execucao: %.4fms\n\n", Arrays.toString(vals[i]), Arrays.toString(pesos[i]), mochilaM.run(caps[i], vals[i], pesos[i]), mochilaM.numIteracoes(), mochilaM.numInstrucoes(), mochilaM.tempoExecucao() / 1e6);
         }
         
-        int[] val = {50, 50, 64, 46, 50, 05};
-        int[] pes = {56, 59, 80, 64, 75, 17};
-        int cap = 190;
-
+        System.out.println("\nDistância de Edição");
         
+        String a = "Maven, a Yiddish word meaning accumulator of knowledge, began as an attempt to \" +\r\n" + //
+                        "   \t\t\t\"simplify the build processes in the Jakarta Turbine project. There were several\" + \r\n" + //
+                        "   \t\t\t\" projects, each with their own Ant build files, that were all slightly different.\" +\r\n" + //
+                        "   \t\t\t\"JARs were checked into CVS. We wanted a standard way to build the projects, a clear \"+ \r\n" + //
+                        "   \t\t\t\"definition of what the project consisted of, an easy way to publish project information\" +\r\n" + //
+                        "   \t\t\t\"and a way to share JARs across several projects. The result is a tool that can now be\" +\r\n" + //
+                        "   \t\t\t\"used for building and managing any Java-based project. We hope that we have created \" +\r\n" + //
+                        "   \t\t\t\"something that will make the day-to-day work of Java developers easier and generally help \" +\r\n" + //
+                        "   \t\t\t\"with the comprehension of any Java-based project.";
+        String b = "This post is not about deep learning. But it could be might as well. This is the power of \" +\r\n" + //
+                        "   \t\t\t\"kernels. They are universally applicable in any machine learning algorithm. Why you might\" +\r\n" + //
+                        "   \t\t\t\"ask? I am going to try to answer this question in this article.\" + \r\n" + //
+                        "   \t\t        \"Go to the profile of Marin Vlastelica Pogančić\" + \r\n" + //
+                        "   \t\t        \"Marin Vlastelica Pogančić Jun";
+        DistanciaEdRec distR = new DistanciaEdRec();
+        // System.out.printf("Ex. 6, Entradas: %s e %s, Res: %d, Iteracoes: %d, Tempo de Execucao: %.4fms\n\n", a, b, distR.run(a, b), distR.numIteracoes(), distR.tempoExecucao() / 1e6);
+        
+        DistanciaEDDP distDP = new DistanciaEDDP();
+        System.out.printf("Ex. 6, Entradas: %s e %s, Res: %d, Iteracoes: %d, Tempo de Execucao: %.4fms\n\n", a, b, distDP.run(a, b), distDP.numIteracoes(), distDP.tempoExecucao() / 1e6);
     }
 }

@@ -1,9 +1,9 @@
 package com.pucrs.mauricio.mochila;
 
 public class KnapsackRec {
-    private int iteracoes;
-    private int instrucoes;
-    private long tempoExecucao;
+    private int iteracoes = 0;
+    private int instrucoes = 0;
+    private long tempoExecucao = 0;
 
     public long tempoExecucao() {
         return this.tempoExecucao;
